@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="dist/script.js" defer></script>
+</head>
+<body>
+  <main class="todo-card">
+    <header class="header">
+      <h1>Todo App</h1>
+    </header>
+
+    <form id="todo-form" class="input-row">
+      <input
+        id="todo-input"
+        type="text"
+        placeholder="What needs doing?"
+        autocomplete="off"
+        aria-label="What needs doing?"
+      />
+      <button class="add-btn" type="submit">Add</button>
+    </form>
+
+    <section class="toolbar">
+      <p class="tip">
+        Tip: double-click a todo to edit. Press Enter to save.
+      </p>
+
+      <nav class="filters" aria-label="Filter todos">
+        <button class="filter active" data-filter="All" aria-pressed="true">
+          All
+        </button>
+        <button class="filter" data-filter="Active" aria-pressed="false">
+          Active
+        </button>
+        <button class="filter" data-filter="Completed" aria-pressed="false">
+          Completed
+        </button>
+      </nav>
+    </section>
+
+    <ul id="todo-list" class="todo-list" aria-label="Todo list"></ul>
+
+    <footer class="footer">
+      <p id="items-left">2 items left</p>
+
+      <div class="footer-actions">
+        <button id="clear-completed" class="outline-btn">
+          Clear completed
+        </button>
+        <button id="clear-all" class="outline-btn">
+          Clear all
+        </button>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
