@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101014">
+    <title>Interactive Calculator</title>
+    <link rel="stylesheet" href="Lab3.css">
+    <script src="Lab3.js" defer></script>
+</head>
+<body>
+    <main class="calculator">
+        <header class="top-bar">
+            <span class="app-icon">✳</span>
+            <div>
+                <h1>Calculator</h1>
+                <p>Simple things, precisely done.</p>
+            </div>
+            <span class="status-dot" title="Ready"></span>
+        </header>
+
+        <section class="display" aria-label="Calculator display">
+            <div id="history" class="history" aria-live="polite"></div>
+            <output id="screen" class="screen"
+                    aria-live="polite" aria-atomic="true">0</output>
+        </section>
+
+        <section class="keypad" aria-label="Calculator keypad">
+            <button class="key function" data-action="clear">AC</button>
+            <button class="key function" data-action="sign">+/−</button>
+            <button class="key function" data-action="percent">%</button>
+            <button class="key operator" data-op="/" aria-label="Divide">÷</button>
+
+            <button class="key number" data-number="7">7</button>
+            <button class="key number" data-number="8">8</button>
+            <button class="key number" data-number="9">9</button>
+            <button class="key operator" data-op="*" aria-label="Multiply">×</button>
+
+            <button class="key number" data-number="4">4</button>
+            <button class="key number" data-number="5">5</button>
+            <button class="key number" data-number="6">6</button>
+            <button class="key operator" data-op="-" aria-label="Subtract">−</button>
+
+            <button class="key number" data-number="1">1</button>
+            <button class="key number" data-number="2">2</button>
+            <button class="key number" data-number="3">3</button>
+            <button class="key operator" data-op="+" aria-label="Add">+</button>
+
+            <button class="key number double-zero" data-number="00">00</button>
+            <button class="key number" data-number="0">0</button>
+            <button class="key number" data-action="decimal">.</button>
+            <button class="key equals" data-action="equals" aria-label="Equals">=</button>
+        </section>
+
+        <footer class="footer">
+            <span></span>
+            <span>DESIGNED FOR EVERYDAY MATH</span>
+            <span></span>
+        </footer>
+    </main>
+</body>
+</html>

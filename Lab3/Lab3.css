@@ -1,0 +1,239 @@
+/* ---------- Global styles ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #101014;
+    --panel: rgba(30, 30, 37, 0.88);
+    --number: #33333b;
+    --number-hover: #484852;
+    --function: #a5a5ad;
+    --orange: #5ca7ad;
+    --orange-hover: #5ca7ad;
+    --text: #ffffff;
+    --muted: #92929e;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px;
+    background:
+        radial-gradient(ellipse at 15% 15%, #29213b 0, transparent 40%),
+        radial-gradient(ellipse at 90% 85%, #252b3b 0, transparent 38%),
+        var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, sans-serif;
+}
+
+button {
+    font: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.calculator {
+    width: min(100%, 390px);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 34px;
+    background: var(--panel);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+}
+
+/* ---------- Header ---------- */
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.app-icon {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #27a8a8, #27a8a8);
+    color: #252016;
+    font-size: 27px;
+    box-shadow: 0 5px 20px #ff9f0a30;
+}
+
+.top-bar h1 {
+    font-size: 18px;
+    font-weight: 650;
+    letter-spacing: -0.4px;
+}
+
+.top-bar p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    margin-left: auto;
+    border-radius: 50%;
+    background: #65d68a;
+    box-shadow: 0 0 12px #65d68a88;
+}
+
+/* ---------- Display ---------- */
+.display {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 14px 2px 26px;
+    overflow: hidden;
+}
+
+.history {
+    width: 100%;
+    min-height: 18px;
+    overflow-wrap: anywhere;
+    text-align: right;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.screen {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    text-align: right;
+    white-space: nowrap;
+    font-size: clamp(38px, 10vw, 60px);
+    font-weight: 300;
+    letter-spacing: -2px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Keypad ---------- */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.key {
+    aspect-ratio: 1;
+    border: none;
+    display: grid;
+    place-items: center;
+    color: var(--text);
+    background: var(--number);
+    font-size: 23px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: background 150ms ease,
+                transform 100ms ease,
+                box-shadow 150ms ease;
+}
+
+.key:hover {
+    background: var(--number-hover);
+}
+
+.key:active {
+    transform: scale(0.92);
+}
+
+.key:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.key.function {
+    background: var(--function);
+    color: #151515;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.key.function:hover {
+    background: #c3c3ca;
+}
+
+.key.operator,
+.key.equals {
+    background: var(--orange);
+    color: white;
+    font-size: 28px;
+}
+
+.key.operator:hover,
+.key.equals:hover {
+    background: var(--orange-hover);
+}
+
+.key.operator.active {
+    background: white;
+    color: var(--orange);
+    box-shadow: 0 0 20px #ff9f0a35;
+}
+
+.key.equals {
+    box-shadow: 0 5px 20px #ff9f0a25;
+}
+
+.double-zero {
+    font-size: 20px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 23px;
+    color: #666672;
+    font-size: 8px;
+    letter-spacing: 1.2px;
+}
+
+.footer span:first-child,
+.footer span:last-child {
+    width: 15px;
+    height: 1px;
+    background: #45454f;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 360px) {
+    .calculator {
+        padding: 18px;
+        border-radius: 28px;
+    }
+
+    .keypad {
+        gap: 9px;
+    }
+
+    .display {
+        min-height: 130px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
